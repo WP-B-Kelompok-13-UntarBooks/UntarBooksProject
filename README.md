@@ -9,3 +9,8 @@ How To Open
 
 This project uses webpack, npm, and API.
 This project aim to show how to fetch data and do search from an API.
+
+
+List To-Do :
+1. Add mechanic to pagination
+2. Add Routing
