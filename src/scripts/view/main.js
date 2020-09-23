@@ -22,7 +22,7 @@ function main () {
   const getBook = async () => {
     try {
       const response = await fetch(
-                `https://www.googleapis.com/books/v1/volumes?q=harry+potter`
+                `https://www.googleapis.com/books/v1/volumes?q=Novel`
       )
       const responseJson = await response.json()
       if (responseJson.error) {
@@ -40,7 +40,7 @@ function main () {
   }
   const renderTitlePop = () => {
     const titleElement = document.querySelector('#title-page')
-    titleElement.innerHTML = '<h1>Popular Books</h1>'
+    titleElement.innerHTML = '<h1>Novel Books</h1>'
   }
   const renderTitleSearch = () => {
     const titleElement = document.querySelector('#title-page')
