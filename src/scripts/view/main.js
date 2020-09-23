@@ -5,7 +5,6 @@ import DataSource from '../data/data-source.js'
 function main () {
   // icon in web
   const feather = require('feather-icons')
-  const baseUrl = 'http://api.thebookdb.org/3'
   // search
   const bookListElement = document.querySelector('book-list')
   const searchElement = document.querySelector('cust-navbar')
@@ -13,7 +12,7 @@ function main () {
     try {
       const responseJson = await DataSource.searchBook(
         searchElement.value)
-      renderAllBooks(responseJson.results)
+      renderAllBooks(responseJson.items)
       renderTitleSearch()
     } catch (message) {
       fallbackResult(message)
@@ -23,21 +22,21 @@ function main () {
   const getBook = async () => {
     try {
       const response = await fetch(
-                `${baseUrl}/book/popular?api_key=516e28023e8c67e5c5ac446113fde8a6`
+                `https://www.googleapis.com/books/v1/volumes?q=harry+potter`
       )
       const responseJson = await response.json()
       if (responseJson.error) {
         showResponseMessage(responseJson.status_message)
       } else {
         renderTitlePop()
-        renderAllBooks(responseJson.results)
+        renderAllBooks(responseJson.items)
       }
     } catch (error) {
       showResponseMessage(error)
     }
   }
-  const renderAllBooks = (results) => {
-    bookListElement.books = results
+  const renderAllBooks = (items) => {
+    bookListElement.books = items
   }
   const renderTitlePop = () => {
     const titleElement = document.querySelector('#title-page')

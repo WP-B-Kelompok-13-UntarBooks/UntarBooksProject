@@ -8,7 +8,8 @@ class BookItem extends HTMLElement {
     this.innerHTML = `
         <div class="card" style="width:400px">
             <div class="card-body bg-secondary text-white border rounded">
-                #api-fetch-here
+              <img src="${this._book.volumeInfo.imageLinks.thumbnail} class="img-fluid"}
+              <h3>${this._book.volumeInfo.title}</h3>
             </div>
         </div>
         `
