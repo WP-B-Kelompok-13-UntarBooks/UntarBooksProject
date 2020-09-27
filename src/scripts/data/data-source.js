@@ -1,7 +1,7 @@
 class DataSource {
   static searchBook (keyword) {
     return fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${keyword}`
+      `https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=30`
     ).then(response => {
       return response.json()
     }).then(responseJson => {

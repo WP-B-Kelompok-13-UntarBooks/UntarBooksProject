@@ -7,7 +7,7 @@ How To Open
 5. Run this command to open live server "npm run start-dev"
 6. Or this command to build the html and js "npm run build" (files located at /.dist)
 
-This project uses webpack, npm, and API.
+This project uses webpack, npm, and googlebooks API.
 This project aim to show how to fetch data and do search from an API.
 
 
