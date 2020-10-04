@@ -23,3 +23,9 @@ main {
     width: 90%;
     margin: auto;
 }
+
+.card{
+    width: 400px;
+    height: 280px;
+    margin: 5px;
+}
