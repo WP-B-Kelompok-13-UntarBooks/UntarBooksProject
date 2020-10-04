@@ -12,9 +12,10 @@ function main () {
     try {
       const responseJson = await DataSource.searchBook(
         searchElement.value)
-      renderAllBooks(responseJson.items)
       renderTitleSearch()
+      renderAllBooks(responseJson.items)
     } catch (message) {
+      renderTitleSearch()
       fallbackResult(message)
     }
   }
@@ -40,11 +41,12 @@ function main () {
   }
   const renderTitlePop = () => {
     const titleElement = document.querySelector('#title-page')
-    titleElement.innerHTML = '<h1 id="title1">Novel Books</h1>'
+    titleElement.innerHTML += `<h1 id="title1">Novel Books</h1>`
   }
   const renderTitleSearch = () => {
     const titleElement = document.querySelector('#title-page')
-    titleElement.innerHTML = '<h1>Find Results</h1>'
+    titleElement.innerHTML = '<h1><br><br></h1>'
+    titleElement.innerHTML += `<h1>Find Results</h1>`
   }
   const showResponseMessage = (message =
   'Check your internet connection') => {
