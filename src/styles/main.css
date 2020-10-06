@@ -123,3 +123,29 @@ main {
     margin-bottom: 2px;
 }
 
+/*ini style untuk p paling bawah*/
+.about_bawah{
+    border-block-end-style: double;
+    border-top: double;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    font-weight: 800;
+    margin-block-start: 10px;
+    margin-block-end: 20px;
+    padding-top: 2pt;
+}
+
+/*style untuk quote dibawah */
+#quotestyle{
+    border-block-end-style: double;
+    border-top: double;
+    border-left: double;
+    border-right: double;
+    background-color: rgb(238, 195, 134);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    margin-block-start: 10px;
+    margin-block-end: 20px;
+    padding-top: 2pt;
+}
