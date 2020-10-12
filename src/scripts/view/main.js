@@ -5,6 +5,7 @@ import DataSource from '../data/data-source.js'
 function main () {
   // icon in web
   const feather = require('feather-icons')
+
   // search
   const bookListElement = document.querySelector('book-list')
   const searchElement = document.querySelector('cust-navbar')
@@ -50,7 +51,7 @@ function main () {
   }
   const showResponseMessage = (message =
   'Check your internet connection') => {
-    alert(message)
+    //alert(message)
   }
   const fallbackResult = message => {
     bookListElement.renderError(message)

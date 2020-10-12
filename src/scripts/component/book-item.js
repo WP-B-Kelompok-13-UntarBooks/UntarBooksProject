@@ -34,7 +34,7 @@ class BookItem extends HTMLElement {
                 <img src="${this._book.volumeInfo.imageLinks.thumbnail}" class="card-img">
               </div>
               <div class="col">
-                <h4 class="card-title">${this._title}</h4>
+                <h4 class="card-title"><a href="dummyMore.html">${this._title}</a></h4>
                 <hr>
                 <p class="card-text">${this._desc}</p>
               </div>
