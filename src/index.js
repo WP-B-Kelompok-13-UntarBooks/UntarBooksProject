@@ -5,4 +5,6 @@ import 'feather-icons'
 import './styles/main.css'
 import './scripts/component/page-navigation.js'
 import main from './scripts/view/main'
+require("babel-register")
+require("./server")
 main()

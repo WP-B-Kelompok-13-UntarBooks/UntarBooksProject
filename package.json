@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start-dev": "webpack-dev-server --config webpack.dev.js --open"
+    "start-dev": "webpack-dev-server --config webpack.dev.js --open",
+    "dev": "node src/index.js"
   },
-  "author": "teddylioner <teddylioner@gmail.com>",
+  "author": "Untarbooks <teddylioner@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -32,6 +33,7 @@
   "dependencies": {
     "app-ico": "^0.3.1",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "feather-icons": "^4.28.0",
     "jquery": "^3.5.1",
     "regenerator-runtime": "^0.13.3"
