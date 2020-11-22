@@ -20,7 +20,10 @@ this command to start server "npm run start"
 
 This project uses webpack, npm, and googlebooks API. This project aim to show how to fetch data and do search from an API.
 
+
 List To-Do :
 
+
 Add mechanic to pagination
+
 Add Routing
