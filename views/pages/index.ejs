@@ -1,0 +1,19 @@
+<body>
+    <main>
+        <div class="title-page"><%- title_page %></div>
+        <hr>
+        <% if (locals.error) { %>
+            <h3><% error %></h3>
+        <% } %>
+        <book-list id='book-list'><%- result %></book-list>
+        <page-navigation><%- page_nav %></page-navigation>
+        <br>
+        <h3 id='about-us'>About Us</h3>
+        <p class="about_bawah">UntarBooks is a non-profit, free to access library, filled with a variety of books that you can read online.
+            Feel free to read your favorite book, anywhere,anytime</p>
+        <div class="text-center", id="quotestyle">
+            "The more that you read, the more things you will know. The more that you learn, the more places
+            you'll go" - Dr.Seuss
+        </div>
+    </main>
+</body>
