@@ -36,6 +36,7 @@ const detailRouter = require('./routes/detail');
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/detail', detailRouter);
+app.use('/search/:searchterm/detail', detailRouter);
 //app.use('/auth', authRouter);
 //app.use('/todo', todoRouter);
 
