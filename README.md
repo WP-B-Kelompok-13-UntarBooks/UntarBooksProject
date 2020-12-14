@@ -12,5 +12,5 @@ How To Open :open_book:
 4. Run this command to the terminal "npm install"
 5. Run this command to open live server "npm run dev"
 
-This project uses express, npm, and googlebooks API.
+This project uses vue js, npm, and googlebooks API.
 This project aim to show how to fetch data and do search from an API.
