@@ -3,12 +3,44 @@ const router = express.Router();
 const fetch = require('node-fetch');
 
 var page = 1;
+var searchTerm = "";
 var _title_page = "";
 
 router.post('/:searchTerm', 
     async (req, res) => {
       page = 1;
-      var searchTerm = req.params.searchTerm.replace("?searchElement=", "");
+      searchTerm = req.params.searchTerm;
+      console.log("Searching for " + searchTerm);
+      
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=30`)
+      .then(response => response.json())
+      .then(data => {
+        if (!data.items) {
+          console.log(data);
+          Promise.reject(`${searchTerm} is not found`)
+        }
+        else{
+          var books = data.items;
+          var renderbooks = '';
+
+          books.forEach((element) => {
+            var book_Item = '<div class="book-item">';
+            book_Item = book_Item.concat(createBookItem(element)).concat('</div>');
+            renderbooks = renderbooks.concat(book_Item);
+          });
+          _title_page = searchTerm + " Books";
+          var pageNav = getPageNav(data.totalItems);
+
+          res.render('pages/index', { result:renderbooks, title_page:_title_page, page_nav:pageNav });
+        }
+      })
+    }
+);
+
+router.get('/:searchTerm', 
+    async (req, res) => {
+      page = 1;
+      searchTerm = req.params.searchTerm;
       console.log("Searching for " + searchTerm);
       
       fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=30`)
@@ -38,32 +70,33 @@ router.post('/:searchTerm',
 
 router.get('/:searchTerm/page/:num',
   async (req, res) => {
-    var searchTerm = req.params.searchTerm;
+    searchTerm = req.params.searchTerm;
     page = req.params.num;
     console.log(`Masuk search ${searchTerm} > page ${page}`);
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=Novel&startIndex=${(page-1)*30}&maxResults=30`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&startIndex=${(page-1)*30}&maxResults=30`)
     .then(response => response.json())
-    .then(data => {
-      //console.log(data.items[0].id);
-      if (!data.items) {
-        Promise.reject("Novel is not found");
-      }
-      else{
-        var books = data.items;
-        var renderbooks = '';
+      .then(data => {
+        if (!data.items) {
+          console.log(data);
+          Promise.reject(`${searchTerm} is not found`)
+        }
+        else{
+          var books = data.items;
+          var renderbooks = '';
 
-        books.forEach((element) => {
-          var book_Item = '<div class="book-item">';
-          book_Item = book_Item.concat(createBookItem(element)).concat('</div>');
-          renderbooks = renderbooks.concat(book_Item);
-        });
-        var pageNav = getPageNav(data.totalItems);
+          books.forEach((element) => {
+            var book_Item = '<div class="book-item">';
+            book_Item = book_Item.concat(createBookItem(element)).concat('</div>');
+            renderbooks = renderbooks.concat(book_Item);
+          });
+          _title_page = searchTerm + " Books";
+          var pageNav = getPageNav(data.totalItems);
 
-        res.render('pages/index', { result:renderbooks, title_page:_title_page, page_nav:pageNav });
-      }
-    })
-  }
-)
+          res.render('pages/index', { result:renderbooks, title_page:_title_page, page_nav:pageNav });
+        }
+      })
+    }
+);
 
 function getPageNav(totalItem) {
   var str = `
@@ -82,12 +115,12 @@ function getPageNav(totalItem) {
   
 
   if (page > 1)
-    str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${page-1}">Previous</a></li>`);
+    str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${searchTerm}/page/${page-1}">Previous</a></li>`);
 
   if (page != 1)
-    str = str.concat(`<li class="page-item"><a class="page-link" href="/page/1">1</a></li>`);
+    str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${searchTerm}/page/1">1</a></li>`);
   else
-    str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/1">1</a></li>`);
+    str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/search/${searchTerm}/page/1">1</a></li>`);
 
   if (pageStart > 1)
     str = str.concat(`<li class="page-item" disabled><a class="page-link">...</a></li>`);
@@ -95,21 +128,16 @@ function getPageNav(totalItem) {
 
   for(num = pageStart+1; num < pageFinish+1; num++) {
     if (page != num)
-      str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${num}">${num}</a></li>`);
+      str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${searchTerm}/page/${num}">${num}</a></li>`);
     else
-    str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/${num}">${num}</a></li>`);
+    str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/search/${searchTerm}/page/${num}">${num}</a></li>`);
   }
 
   if (pageFinish+1 < navNum)
     str = str.concat(`<li class="page-item" disabled><a class="page-link">...</a></li>`);
   
   if (page != navNum)
-    str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${navNum}">${navNum}</a></li>`);
-  else
-  str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/${navNum}">${navNum}</a></li>`);
-  
-  if (page != navNum)
-    str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${Number(page)+1}">Next</a></li>`);
+    str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${searchTerm}/page/${Number(page)+1}">Next</a></li>`);
 
   str = str.concat("</ul></nav>");
   return str;

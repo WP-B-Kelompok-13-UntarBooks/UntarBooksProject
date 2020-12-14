@@ -99,11 +99,6 @@ function getPageNav(totalItem) {
     str = str.concat(`<li class="page-item" disabled><a class="page-link">...</a></li>`);
   
   if (page != navNum)
-    str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${navNum}">${navNum}</a></li>`);
-  else
-  str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/${navNum}">${navNum}</a></li>`);
-  
-  if (page != navNum)
     str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${Number(page)+1}">Next</a></li>`);
 
   str = str.concat("</ul></nav>");

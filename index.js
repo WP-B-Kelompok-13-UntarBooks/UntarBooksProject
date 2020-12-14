@@ -21,6 +21,7 @@ app.use(session({
 
 //use layouts
 app.use(layouts);
+app.use(express.static('public'));
 app.set('layout', 'layouts/cust-nav.ejs');
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
@@ -38,5 +39,7 @@ app.use('/detail', detailRouter);
 //app.use('/auth', authRouter);
 //app.use('/todo', todoRouter);
 
-app.listen(3000);
-console.log('Server runs at port 3000...');
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+    console.log('Server runs at port 3000...');
+});
