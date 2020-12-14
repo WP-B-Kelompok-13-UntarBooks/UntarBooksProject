@@ -15,10 +15,6 @@
                      </button>
                  </form>
              </li>
-             <li class="nav-item">
-                <a class="nav-link" v-if="sessionStat" href="/logout">Logout</a>
-                <a class="nav-link" v-else href="/login">Login</a>
-             </li>
           </ul>
        </b-collapse>
 </b-navbar>

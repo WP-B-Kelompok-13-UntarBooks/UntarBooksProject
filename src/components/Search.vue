@@ -1,6 +1,6 @@
 <template>
 <body>
-    <div class="title-page">My Favorite Books</div>
+    <div class="title-page">Books</div>
     <div id='book-list' v-html="result"></div>
     <br>
     <div id='page-navigation' v-html="page_nav"></div>
