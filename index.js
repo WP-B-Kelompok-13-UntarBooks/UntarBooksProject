@@ -1,44 +1,52 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const layouts = require('express-ejs-layouts');
+import Vue from 'vue'
+import Router from 'vue-router'
+import VueSession from 'vue-session'
+import Home from '@/components/Home'
+import Detail from '@/components/Detail'
+import Login from '@/components/Login'
+import Profile from '@/components/Profile'
+import Search from '@/components/Search'
 
-const app = express();
+Vue.use(Router)
+Vue.use(VueSession)
 
-app.set('view engine', 'ejs');
-
-app.use(bodyParser.urlencoded());
-app.use("/node_modules", express.static('node_modules'));
-app.use("/layouts", express.static('views/layouts'));
-
-/*
-//enable session
-
-app.use(session({
-    secret:'som3_s3cret_key5',
-    cookie: {}
-}));*/
-
-//use layouts
-app.use(layouts);
-app.set('layout', 'layouts/cust-nav.ejs');
-app.set('layout extractStyles', true);
-app.set('layout extractScripts', true);
-
-//routes
-const indexRouter = require('./routes/index');
-const searchRouter = require('./routes/search');
-const detailRouter = require('./routes/detail');
-//const authRouter = require('./routes/auth');
-//const todoRouter = require('./routes/todo');
-
-app.use('/', indexRouter);
-app.use('/search', searchRouter);
-app.use('/detail', detailRouter);
-//app.use('/auth', authRouter);
-//app.use('/todo', todoRouter);
-
-const port = process.env.PORT || 3000;
-app.listen(port, function() {
-    console.log('Server runs at port 3000...');
-});
+export default new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/page/:page',
+      name: 'Home.page',
+      component: Home
+    },
+    {
+      path: '/search/:keyword',
+      name: 'Search',
+      component: Search
+    },
+    {
+      path: '/search/:keyword/page/:page',
+      name: 'Search.page',
+      component: Search
+    },
+    {
+      path: '/detail/:id',
+      name: 'Detail',
+      component: Detail
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/profile/:userID',
+      name: 'Profile',
+      component: Profile
+    }
+  ]
+})
