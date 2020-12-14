@@ -1,11 +1,11 @@
-# UntarBooksProject:open_book:
+# UntarBooksProject:orange_book:
 
 Now available on: https://uasbook.herokuapp.com/
 <br>
 <br>
 <img src="Untarbooks.png" width="250">
 
-How To Open 
+How To Open :open_book: 
 1. Install Node and NPM 12 lts from https://nodejs.org/
 2. Open the directory using VSCODE
 3. Open the terminal
