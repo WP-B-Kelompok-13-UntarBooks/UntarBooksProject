@@ -23,7 +23,7 @@ export default {
       <nav aria-label="Page navigation example" style="margin-top: 10px">
       <ul class="pagination justify-content-center">`
 
-      var navNum = Math.floor(totalItem / 30)
+      var navNum = (Math.floor(totalItem / 30))
       var pageStart = Number(this.page) - 3
       if (pageStart < 1) {
         pageStart = 1

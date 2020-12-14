@@ -14,7 +14,8 @@ export default {
     return {
       page: 1,
       result: null,
-      page_nav: null
+      page_nav: null,
+      keyword: null
     }
   },
   methods: {
@@ -33,12 +34,12 @@ export default {
       var pageFinish = pageStart + 5
 
       if (Number(this.page) > 1) {
-        str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${Number(this.page) - 1}">Previous</a></li>`)
+        str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${this.keyword}/page/${Number(this.page) - 1}">Previous</a></li>`)
       }
       if (Number(this.page) !== 1) {
-        str = str.concat(`<li class="page-item"><a class="page-link" href="/page/1">1</a></li>`)
+        str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${this.keyword}/page/1">1</a></li>`)
       } else {
-        str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/1">1</a></li>`)
+        str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/search/${this.keyword}/page/1">1</a></li>`)
       }
       if (pageStart > 1) {
         str = str.concat(`<li class="page-item" disabled><a class="page-link">...</a></li>`)
@@ -46,9 +47,9 @@ export default {
 
       for (var num = pageStart + 1; num < pageFinish + 1; num++) {
         if (Number(this.page) !== num) {
-          str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${num}">${num}</a></li>`)
+          str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${this.keyword}/page/${num}">${num}</a></li>`)
         } else {
-          str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/${num}">${num}</a></li>`)
+          str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/search/${this.keyword}/page/${num}">${num}</a></li>`)
         }
       }
 
@@ -57,13 +58,13 @@ export default {
       }
 
       if (Number(this.page) !== navNum) {
-        str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${navNum}">${navNum}</a></li>`)
+        str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${this.keyword}/page/${navNum}">${navNum}</a></li>`)
       } else {
-        str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/page/${navNum}">${navNum}</a></li>`)
+        str = str.concat(`<li class="page-item"><a class="page-link btn-disabled" href="/search/${this.keyword}/page/${navNum}">${navNum}</a></li>`)
       }
 
       if (Number(this.page) !== navNum) {
-        str = str.concat(`<li class="page-item"><a class="page-link" href="/page/${Number(this.page) + 1}">Next</a></li>`)
+        str = str.concat(`<li class="page-item"><a class="page-link" href="/search/${this.keyword}/page/${Number(this.page) + 1}">Next</a></li>`)
       }
 
       str = str.concat('</ul></nav>')
@@ -128,7 +129,7 @@ export default {
 
     getBooks () {
       axios
-        .get(`https://www.googleapis.com/books/v1/volumes?q=Novel&startIndex=${(this.page - 1) * 30}&maxResults=30`)
+        .get(`https://www.googleapis.com/books/v1/volumes?q=${this.keyword}&startIndex=${(this.page - 1) * 30}&maxResults=30`)
         .then((response) => {
           var data = response.data
           var books = data.items
@@ -155,6 +156,7 @@ export default {
     } else {
       this.page = this.$route.params.page
     }
+    this.keyword = this.$route.params.keyword
     this.getBooks()
   }
 }

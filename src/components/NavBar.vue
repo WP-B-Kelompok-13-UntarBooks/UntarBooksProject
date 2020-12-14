@@ -1,9 +1,7 @@
 <template>
-<nav class="navbar fixed-top navbar-expand-md navbar-dark text-white">
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<b-navbar toggleable="lg"  class="navbar fixed-top navbar-expand-md navbar-dark text-white">
+       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+       <b-collapse id="nav-collapse" is-nav>
           <ul class="navbar-nav mr-auto">
              <li class="navbar-brand nav-link">
                 <b-icon-book-half></b-icon-book-half>
@@ -22,8 +20,8 @@
                 <a class="nav-link" v-else href="/login">Login</a>
              </li>
           </ul>
-       </div>
-</nav>
+       </b-collapse>
+</b-navbar>
 </template>
 
 <script>
