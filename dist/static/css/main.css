@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+.feather {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: no;
+}
+
+* {
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+main {
+    padding-top: 200px;
+    width: 95%;
+    margin: auto;
+}
+
+footer{
+    background-color: rgba(20, 12, 54, 0.904); 
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a:hover {
+    text-decoration: none!important;
+}
+
+.btn-disabled {
+    opacity: .5;
+    cursor: default !important;
+    pointer-events: none;
+}
+
+.navbar {
+    background: rgba(5, 5, 70, 0.8)!important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+  }
+
+.navbar-brand {
+    color: #FFF;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 22px;
+    margin-top: 7px;
+}
+
+.navbar-brand .feather {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+  
+.navbar-brand h1 {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#title1 {
+    margin-top: 2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: darkblue;    
+}
+
+#title1:hover {
+    color: rgba(47, 47, 148, 0.8);
+}
+
+.card{
+    width: 22.1rem;
+    height: 17rem;
+    border-radius: 7px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: rgba(5, 5, 70, 0.6);
+    color: #F0FFFF;
+}
+
+.card:active {
+    background-color: aliceblue;
+    color: darkblue;
+}
+
+.card-img {
+    width: 9rem;
+    height: 12rem;
+    border: 2px dashed azure;
+}
+
+.detail-card-img {
+    width: 15rem;
+    height: 20rem;
+    border: 2px dashed azure;
+}
+
+.detail-col {
+    flex-grow: 0!important;
+}
+
+.card-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: smaller; 
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+}
+
+.book-item {
+    display: inline-block;
+}
+
+.card-made {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    margin: 15px 15px;
+}
+
+#searchButtonElement {
+    color: #FFF;
+    border-color: #FFF;
+  }
+
+#searchButtonElement:hover {
+    background-color: rgba(138, 138, 187, 0.8);
+}
+
+#searchButtonElement:active {
+    background-color: rgba(138, 138, 187, 0.3);
+}
+
+#searchButtonElement .feather {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+/*ini style untuk p paling bawah*/
+.about_bawah{
+    border-block-end-style: double;
+    border-top: double;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    font-weight: 800;
+    margin-block-start: 10px;
+    margin-block-end: 20px;
+    padding-top: 2pt;
+}
+
+/*style untuk quote dibawah */
+#quotestyle{
+    border-block-end-style: double;
+    border-top: double;
+    border-left: double;
+    border-right: double;
+    background-color: rgb(238, 195, 134);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    margin-block-start: 10px;
+    margin-block-end: 20px;
+    padding-top: 2pt;
+}
