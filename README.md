@@ -1,16 +1,38 @@
-# UntarBooksProject:orange_book:
+# UNI UntarBooks Project 📚
+A Vue.js-based book catalog application demonstrating API integration and search functionality.
 
-Now available on: https://uasbook.herokuapp.com/
-<br>
-<br>
-<img src="Untarbooks.png" width="250">
+## 🚀 Live Demo
+Available on [Heroku/GitHub Pages](https://uasbook.herokuapp.com/)
 
-How To Open :open_book: 
-1. Install Node and NPM 12 lts from https://nodejs.org/
-2. Open the directory using VSCODE
-3. Open the terminal
-4. Run this command to the terminal "npm install"
-5. Run this command to open live server "npm run dev"
+![UntarBooks Logo](Untarbooks.png)
 
-This project uses vue js, npm, webpack, eslint, axios, bootstrap and googlebooks API.
-This project aim to show how to fetch data and do search from an API.
+## 🛠 Tech Stack
+- **Framework**: Vue.js 2
+- **Bundler**: Webpack
+- **HTTP Client**: Axios
+- **Styling**: Bootstrap 4 / Bootstrap-Vue
+- **API**: Google Books API
+
+## 📖 Features
+- Fetch and display book data from external APIs.
+- Dynamic search functionality.
+- Response-oriented UI components.
+
+## ⚙️ Getting Started
+
+### Prerequisites
+- Node.js (v12 LTS recommended)
+- npm
+
+### Installation
+```bash
+npm install
+```
+
+### Running the App
+```bash
+npm run dev
+```
+
+---
+> *Final Project for Web Programming Class at Universitas Tarumanagara.*
