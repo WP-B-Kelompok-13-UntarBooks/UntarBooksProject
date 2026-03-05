@@ -1,4 +1,4 @@
-# UNI UntarBooks Project 📚
+# UntarBooks Project 📚
 A Vue.js-based book catalog application demonstrating API integration and search functionality.
 
 ## 🚀 Live Demo
